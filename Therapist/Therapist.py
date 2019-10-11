@@ -21,3 +21,6 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print("\n\n...You could have said Goodbye at least.\nOh well, this will increase your bill by $25.\nPay up.")
         sys.exit(0)
+    except:
+        print("An error occured.")
+        sys.exit(1)
