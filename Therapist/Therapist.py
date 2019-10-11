@@ -8,12 +8,16 @@ USERINPUT = ''
 # print(sys.argv[1]) # Print first argument
 
 if __name__ == '__main__':
-    print("I thank you for coming in with me today.\nWould you mind explaining your problems to me?\n\n")
-    while True:
-        USERINPUT = input(">>>  ")
-        Thinker(USERINPUT)
-    #print(USERINPUT)
-
-    Thinker(USERINPUT)
-
-    USERINPUT = input(">>>  ")
+    try:
+        print("I thank you for coming in with me today.\nWould you mind explaining your problems to me?\n")
+        while True:
+            USERINPUT = input(">>>  ")
+            if(USERINPUT.lower()=="Goodbye"):
+                print("The bill will be delivered to you within the next week.\n\n")
+                sys.exit(0)
+                
+            Thinker(USERINPUT)
+                
+    except KeyboardInterrupt:
+        print("\n\n...You could have said Goodbye at least.\nOh well, this will increase your bill by $25.\nPay up.")
+        sys.exit(0)

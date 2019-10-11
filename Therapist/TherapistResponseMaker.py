@@ -2,20 +2,33 @@
 
 import sys
 
-keywords = ["Hello"] # Words to respond to
+keywords = ["hello"] # Words to respond to
+
+debug = False        # Will print the Response and Keywords etc.
 
 def CheckForArray(string):
     for i in range(0,len(keywords)):
-        if(string==keywords[i]):
-            print("Keyword detected!")
+        if(string.lower()==keywords[i]):
+            if(debug==True):
+                print("Keyword detected!")
             return string
 
+def SendOut(response):
+    print(response)
+        
+def FormulateResponse(key):
+    if key == "Hello":
+        return "We already greeted...\n"
+    
 
 def Thinker(resp):
     if(isinstance(resp, str) == True):
         keyword = CheckForArray(resp)
-        print("This is your response: ", resp)
-        print("This is the Keyword: ", keyword)
+        if(debug==True):
+            print("This is your response: ", resp)
+            print("This is the Keyword: ", keyword)
+        thought = FormulateResponse(keyword)
+        SendOut(thought)
     else:
         print("There has been an error in Thinking!")
         sys.exit(1)
