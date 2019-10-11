@@ -12,7 +12,7 @@ if __name__ == '__main__':
         print("I thank you for coming in with me today.\nWould you mind explaining your problems to me?\n")
         while True:
             USERINPUT = input(">>>  ")
-            if(USERINPUT.lower()=="Goodbye"):
+            if(USERINPUT.lower()=="goodbye"):
                 print("The bill will be delivered to you within the next week.\n\n")
                 sys.exit(0)
                 
