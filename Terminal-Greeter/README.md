@@ -9,6 +9,7 @@ Put `.greeter` and `Gnu` into a folder of your liking and add this into your `.b
 	if [ -f /path/to/.greeter ]; then
 		. /path/to/.greeter
 	fi
+```
 
 ## Customization
 Change the contents of `Gnu` to whatever your heart desires.
