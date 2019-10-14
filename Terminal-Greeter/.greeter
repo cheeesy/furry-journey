@@ -1,0 +1,9 @@
+#!/bin/bash
+
+OWS=(Montag Dienstag Mittwoch Donnerstag Freitag Samstag Sonntag)
+MON=(Januar Februar März April Mai Juni Juli August September Oktober November Dezember)
+RAINBOWSEED=$RANDOM
+cat Gnu | lolcat -S $RAINBOWSEED
+
+echo ""
+echo -ne " Willkommen, $USER! Heute ist ${OWS[$(date +%u)-1]}, der $(date +%d). ${MON[$(date +%m)-1]}!\n" | lolcat -S $RAINBOWSEED
