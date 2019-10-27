@@ -1,9 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-OWS=(Montag Dienstag Mittwoch Donnerstag Freitag Samstag Sonntag)
-MON=(Januar Februar März April Mai Juni Juli August September Oktober November Dezember)
-RAINBOWSEED=$RANDOM
-cat Gnu | lolcat -S $RAINBOWSEED
+OWS=(Monday Tuesday Wednesday Thursday Friday Saturday Sunday)
+MON=(January February March April May June July August September October November December)
+RAINBOWYES=true
 
-echo ""
-echo -ne " Willkommen, $USER! Heute ist ${OWS[$(date +%u)-1]}, der $(date +%d). ${MON[$(date +%m)-1]}!\n" | lolcat -S $RAINBOWSEED
+if [ $RAINBOWYES == true ]; then
+    RAINBOWSEED=$RANDOM # Only generate a Rainbow seed if color is wanted.
+    cat ~/.gnu | lolcat -S $RAINBOWSEED
+    echo -ne "\n Welcome, $USER! Today is ${OWS[$(date +%u)-1]}, the $(date +%d). ${MON[$(date +%m)-1]}!\n" | lolcat -S $RAINBOWSEED
+else
+    cat ~/.gnu
+    echo -ne "\n Welcome, $USER! Today is ${OWS[$(date +%u)-1]}, the $(date +%d). ${MON[$(date +%m)-1]}!\n"
+fi
