@@ -6,7 +6,7 @@
    Terminal-Greeter is a script that greets the user everytime they open a terminal.
    Out-of-the-box the script will greet you with a box containing the phrase "GNU/Linux".
 *** Installation
-    Run *install.sh* Add this to the end of your .bashrc file:
+    Run *install.sh* or add this to the end of your .bashrc file:
 
 #+BEGIN_SRC bash
 if [ -f ~/.greeter ]; then
@@ -14,9 +14,11 @@ if [ -f ~/.greeter ]; then
 fi
 #+END_SRC
 *** Customization
-    Terminal-Greeter uses a file called .Gnu which contains the majority of the Greeting text.
-    If you want a different greeting text, you'll need to change the text
+    Terminal-Greeter uses a file called *.gnu* which contains the majority of the greeting.
+    If you want a different greeting text, you'll need to change the text.
 
-** TODO Add option to use the distro name & version as a greeting text
+** Future features
+*** TODO Add option to use the distro name & version as a greeting text
    SCHEDULED: As soon as possible
+   
    I'm not sure whether this will work with the box-drawing-characters, but hopefully it will.
