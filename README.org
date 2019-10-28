@@ -1,0 +1,6 @@
+#+TITLE: furry-journey
+#+AUTHOR: cheeesy
+#+DATE: 2019-10-29
+
+** Description
+   furry-journey is a miscallaneous repository. It is made for scripts that don't need their own repository.
