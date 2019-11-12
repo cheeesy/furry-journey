@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-echo "*Installing Terminal-Greeter*"
+echo "*Terminal-Greeter Installer*"
+
+echo "> Checking for requirements"
+if ! [ -x "$(command -v lolcat)" ]; then
+    echo "Error: lolcat is not installed." >&2
+    exit 1
+fi
 
 echo "> Installing Terminal-Greeter"
 cp .greeter ~/.greeter
