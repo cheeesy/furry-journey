@@ -1,0 +1,6 @@
+#+TITLE: update
+#+AUTHOR: cheeesy
+#+DATE: 2019-11-17
+
+** Description
+An update script that updates your vim and apt.
