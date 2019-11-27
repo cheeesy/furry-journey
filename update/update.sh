@@ -48,4 +48,6 @@ elif [ $packagemanager = "pacman" ]; then
     sudo pacman -Syu
 fi
 
+sudo youtube-dl -U
+
 rm -f /tmp/updateScriptIsRunning
