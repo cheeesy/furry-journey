@@ -1,0 +1,5 @@
+#+TITLE: sqrt
+#+AUTHOR: cheeesy
+#+DATE: 27. November 2019
+
+I wrote this program in math class :) maybe it helps you, probably not though :(
