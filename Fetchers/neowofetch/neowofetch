@@ -1,0 +1,68 @@
+#!/bin/bash
+
+args=("$@")
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+
+#thanks pfetch guy
+while IFS=':k '  read -r key val _; do
+case $key in
+    MemTotal)
+        mem_used=$((mem_used + val))
+        mem_full=$val
+    ;;
+
+    Shmem)
+        mem_used=$((mem_used + val))
+    ;;
+
+    MemFree|Buffers|Cached|SReclaimable)
+        mem_used=$((mem_used - val))
+    ;;
+esac
+done < /proc/meminfo
+
+owo_mem_used=$((mem_used / 1024))
+owo_mem_full=$((mem_full / 1024))
+owo_kernel=$(uname -r)
+owo_pkg=$(dpkg --list | wc --lines)
+owo_user=${USER:-$(id -un || printf %s "${HOME/*\/}")}
+owo_hostname=${HOSTNAME:-$(hostname)}
+owo_de=${XDG_CURRENT_DESKTOP}
+
+for i in "${args[@]}"
+do
+    if [ $i == "--sensible" ]; then
+       printf " ${bold}❤${normal}  Hello $(echo "$owo_user" | sed 's/.*/\u&/') <3 ${bold}(${owo_user}@${owo_hostname})${normal}\n ${bold}Kernel:${normal} ${owo_kernel}\n ${bold}Memory:${normal} ${owo_mem_used} MB / ${owo_mem_full} MB\n ${bold}Packages:${normal} ${owo_pkg}\n\n"
+       exit
+    fi
+done
+
+
+# printf " ${bold}❤${normal}  Hello $(echo "$user" | sed 's/.*/\u&/') <3 ${bold}(${user}@${hostname})${normal}\n ${bold}Kernel:${normal} ${kernel}\n ${bold}Memory:${normal} ${mem_used} MB / ${mem_full} MB\n ${bold}Packages:${normal} ${pkg}\n\n"
+
+# echo -e "\e[1mHEWWO ${USER}!!!\n\e[0m I AM SO EXCITED TO SEE YOU AGAIN!\n\n"
+
+#str_1 = "db   db d88888b db   d8b   db db   d8b   db  .d88b.  "
+#str_2 = "88   88 88'     88   I8I   88 88   I8I   88 .8P  Y8. "
+#str_3 = "88ooo88 88ooooo 88   I8I   88 88   I8I   88 88    88 "
+#str_4 = "88~~~88 88~~~~~ Y8   I8I   88 Y8   I8I   88 88    88 "
+#str_5 = "88   88 88.     \`8b d8'8b d8' \`8b d8'8b d8' \`8b  d8' "
+#str_6 = "YP   YP Y88888P  \`8b8' \`8d8'   \`8b8' \`8d8'   \`Y88P'  "
+
+#db   db d88888b db   d8b   db db   d8b   db  .d88b.  
+#88   88 88'     88   I8I   88 88   I8I   88 .8P  Y8. 
+#88ooo88 88ooooo 88   I8I   88 88   I8I   88 88    88 
+#88~~~88 88~~~~~ Y8   I8I   88 Y8   I8I   88 88    88 
+#88   88 88.     `8b d8'8b d8' `8b d8'8b d8' `8b  d8' 
+#YP   YP Y88888P  `8b8' `8d8'   `8b8' `8d8'   `Y88P'  
+
+echo -e "\e[31mdb   db d88888b db   d8b   db db   d8b   db  .d88b.  "
+echo -e "\e[38;5;202m88   88 88'     88   I8I   88 88   I8I   88 .8P  Y8. "
+echo -e "\e[33m88ooo88 88ooooo 88   I8I   88 88   I8I   88 88    88 "
+echo -e "\e[32m88~~~88 88~~~~~ Y8   I8I   88 Y8   I8I   88 88    88 "
+echo -e "\e[34m88   88 88.     \`8b d8'8b d8' \`8b d8'8b d8' \`8b  d8' "
+echo -e "\e[35mYP   YP Y88888P  \`8b8' \`8d8'   \`8b8' \`8d8'   \`Y88P'  \e[0m"
+
+printf "${bold}hewwo ${owo_user}!!!\n${normal}i is so excited to see chu again! OWO\nyouw nyame is '${owo_user}' on teh '${owo_hostname}' machine uwu~\nchu'we wunnin teh kewnew '${owo_kernel}'\nchu hawwe '${owo_pkg}' apt pyackages instawwed (bloaty woaty qwq)\nchu'we consumin '${owo_mem_used}' megabytes of wam on teh '${owo_de}' de uwu~\n"

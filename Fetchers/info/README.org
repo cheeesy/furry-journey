@@ -1,0 +1,9 @@
+#+TITLE: Info
+#+AUTHOR: cheeesy
+#+DATE: 2020
+
+** Info
+It gives simple info.
+
+** Requirements
+lsb-release, bash
