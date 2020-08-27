@@ -1,6 +1,9 @@
 #+TITLE: furry-journey
 #+AUTHOR: cheeesy
 #+DATE: 2019-10-29
+#+EDITED: 2020-08-27
 
 ** Description
    furry-journey is a miscallaneous repository. It is made for scripts that don't need their own repository.
+
+   Please note that some projects in here might use different licenses than the GPL (for example the MIT license). Please check the licenses for each project before using/spreading them. The GPL license in this directory is meant for any content in this repository that does not include a separate license.
