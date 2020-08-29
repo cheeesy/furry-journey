@@ -78,8 +78,8 @@ echo -ne "    CPU:\t\t${cpuinfo}\n"
 echo -ne "    Memory:\t\t${mem_full}MiB\n" # /${mem_full}MiB\n"
 echo -ne "    Disk:\t\t${diskspaceused}/${diskspace} (${diskpart})\n\n"
 echo -ne "    Load:\t\t${loadavg}\n"
-echo -ne "    Free Memory:\t$((mem_full - mem_used))\n"
-echo -ne "    Free Disk:\t\t${diskfree}\n"
+echo -ne "    Free Memory:\t$((mem_full - mem_used))MiB\n"
+echo -ne "    Free Disk:\t\t${diskfree}iB\n"
 
 tput bold
 printf "│"
