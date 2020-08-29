@@ -47,11 +47,10 @@ loadavg+=$(echo ${alltehload} | awk '{print $2}')
 loadavg+=', '
 loadavg+=$(echo ${alltehload} | awk '{print $3}')
 
-distro=$(lsb_release -s -i)
-distro+=' '
-distro+=$(lsb_release -s -r)
-distro+=' '
-distro+=$(uname -p) # Shout out to bash for having a shitty string contatenation system.
+distro=$(cat /etc/os-release | grep "PRETTY_NAME=" | cut -c14- | sed 's/"//g')
+distro+=' ('
+distro+=$(uname -p)
+distro+=')'
 
 tput bold
 printf "┌"
