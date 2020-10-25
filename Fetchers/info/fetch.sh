@@ -47,11 +47,10 @@ loadavg+=$(echo ${alltehload} | awk '{print $2}')
 loadavg+=', '
 loadavg+=$(echo ${alltehload} | awk '{print $3}')
 
-distro=$(lsb_release -s -i)
-distro+=' '
-distro+=$(lsb_release -s -r)
-distro+=' '
-distro+=$(uname -p) # Shout out to bash for having a shitty string contatenation system.
+distro=$(cat /etc/os-release | grep "PRETTY_NAME=" | cut -c14- | sed 's/"//g')
+distro+=' ('
+distro+=$(uname -p)
+distro+=')'
 
 tput bold
 printf "┌"
@@ -79,8 +78,8 @@ echo -ne "    CPU:\t\t${cpuinfo}\n"
 echo -ne "    Memory:\t\t${mem_full}MiB\n" # /${mem_full}MiB\n"
 echo -ne "    Disk:\t\t${diskspaceused}/${diskspace} (${diskpart})\n\n"
 echo -ne "    Load:\t\t${loadavg}\n"
-echo -ne "    Free Memory:\t$((mem_full - mem_used))\n"
-echo -ne "    Free Disk:\t\t${diskfree}\n"
+echo -ne "    Free Memory:\t$((mem_full - mem_used))MiB\n"
+echo -ne "    Free Disk:\t\t${diskfree}iB\n"
 
 tput bold
 printf "│"

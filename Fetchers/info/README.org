@@ -6,4 +6,4 @@
 It gives simple info.
 
 ** Requirements
-lsb-release, bash
+bash
